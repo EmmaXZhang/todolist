@@ -18,18 +18,12 @@ function addNote(newNote){
 
 
 function deleteNote(id){
-  setTitleItem(prevItem=>{
+  setNote(prevItem=>{
     return prevItem.filter((item,index)=>{
       return index !== id;
    });
   });
   
-  setContentItem(prevItem=>{
-    return prevItem.filter((item,index)=>{
-      return index !== id;
-   });
-  });
-}
 
   return (
     <div>
@@ -37,13 +31,13 @@ function deleteNote(id){
       <CreateArea 
       onAddNote={addNote}
       />
-      {titleItem.map((title,index)=>(
+      {note.map((noteItem,index)=>(
         <Note 
         key={index}
         id ={index} 
-        title={title} 
-        content={contentItem[index]}
-        onChecked={deleteNote}
+        title={noteItem.title} 
+        content={contentItem.content}
+        onDelete={deleteNote}
         />
       ))}
       
