@@ -7,14 +7,12 @@ import CreateArea from "./CreateArea";
 function App() {
 const [note,setNote]= useState([]);
 
-
 function addNote(newNote){
   // create shallow copy of previous state value
  setNote(prevItems=>{
   return [...prevItems,newNote];
  });
 }
-
 
 
 function deleteNote(id){
@@ -25,7 +23,6 @@ function deleteNote(id){
   });
 }
   
-
   return (
     <div>
       <Header />

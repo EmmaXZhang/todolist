@@ -20,7 +20,7 @@ function handleChange(event){
 
   return (
     <div>
-      <form>
+      <form className="create-note">
         <input name="title" placeholder="Title" onChange={handleChange} value={note.title}/>
         <textarea name="content" placeholder="Take a note..." rows="3" onChange={handleChange} value={note.content}/>
         <button
