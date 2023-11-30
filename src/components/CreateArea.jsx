@@ -10,7 +10,7 @@ const [note, setNote]= useState({
 function handleChange(event){
   //destruction
   const {name, value} = event.target;
-  setContent(prevItems=>{
+  setNote(prevItems=>{
     return{
       ...prevItems,
       [name]:value
@@ -26,7 +26,10 @@ function handleChange(event){
         <button
         onClick={(event)=>{
           props.onAddNote(note);
-          setNote("");
+          setNote({
+            title:"",
+            content:""
+          });
           event.preventDefault();
         }}
         >Add</button>

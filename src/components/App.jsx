@@ -37,7 +37,7 @@ function deleteNote(id){
         key={index}
         id ={index} 
         title={noteItem.title} 
-        content={contentItem.content}
+        content={noteItem.content}
         onDelete={deleteNote}
         />
       ))}
