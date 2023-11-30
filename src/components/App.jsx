@@ -23,6 +23,7 @@ function deleteNote(id){
       return index !== id;
    });
   });
+}
   
 
   return (
