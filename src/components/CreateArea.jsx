@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
+import Zoom from "@material-ui/core/Zoom";
 
 function CreateArea(props) {
 const [note, setNote]= useState({
@@ -8,6 +9,7 @@ const [note, setNote]= useState({
   content:""
 });
 
+const [isExpended, setExpendStyle]=useState(false);
 
 function handleChange(event){
   //destruction
@@ -20,11 +22,20 @@ function handleChange(event){
   });
 }
 
+function expend(){
+  setExpendStyle(true);
+}
+
+
+
   return (
     <div>
       <form className="create-note">
-        <input name="title" placeholder="Title" onChange={handleChange} value={note.title}/>
-        <textarea name="content" placeholder="Take a note..." rows="3" onChange={handleChange} value={note.content}/>
+        {isExpended ? <input name="title" placeholder="Title" value={note.title} onChange={handleChange} /> : null}
+
+        <textarea name="content" placeholder="Take a note..." rows={isExpended ? 3 : 1} value={note.content} onChange={handleChange} onClick={expend}/>
+
+        <Zoom in={isExpended}>
         <Fab
         onClick={(event)=>{
           props.onAddNote(note);
@@ -35,6 +46,7 @@ function handleChange(event){
           event.preventDefault();
         }}
         ><AddIcon /></Fab>
+        </Zoom>
       </form>
     </div>
   );
