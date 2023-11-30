@@ -5,20 +5,17 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
-const [titleItem,setTitleItem]= useState([]);
-const [contentItem,setContentItem] = useState([]);
+const [note,setNote]= useState([]);
 
-function addTitle(newTitle){
- setTitleItem(prevItems=>{
-  return [...prevItems,newTitle];
+
+function addNote(newNote){
+  // create shallow copy of previous state value
+ setNote(prevItems=>{
+  return [...prevItems,newNote];
  });
 }
 
-function addContent(newContent){
-  setContentItem(prevItems=>{
-    return [...prevItems,newContent];
-  });
-}
+
 
 function deleteNote(id){
   setTitleItem(prevItem=>{
@@ -38,8 +35,7 @@ function deleteNote(id){
     <div>
       <Header />
       <CreateArea 
-      onAddTitle={addTitle}
-      onAddContent={addContent}
+      onAddNote={addNote}
       />
       {titleItem.map((title,index)=>(
         <Note 
